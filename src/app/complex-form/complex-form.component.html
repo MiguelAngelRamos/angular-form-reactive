@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <form >
+  <form [formGroup]="complexForm">
 
     <!-- Nombre completo -->
     <div class="mb-3">
@@ -38,7 +38,9 @@
     <!-- Habilidades (Checkbox) -->
     <div formArrayName="skills" class="mb-3">
       <label class="form-label">Habilidades</label><br>
-
+      <div *ngFor=" let skill of skills.controls; let i = index">
+        <input type="checkbox" [formControlName]="i"> {{skillName(i)}}
+      </div>
     </div>
 
     <!-- País (Select) -->
