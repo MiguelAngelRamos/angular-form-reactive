@@ -3,13 +3,36 @@
   <form [formGroup]="loginForm" class="row" (ngSubmit)="onSubmit()">
 
     <div class="col-md-4 offset-md-4">
+
       <label for="email" class="form-label">Email</label>
-      <input type="email" id="email" formControlName="email" class="form-control">
+      <input 
+        type="email" 
+        id="email" 
+        formControlName="email" 
+        class="form-control"
+        [class.is-invalid]="emailIsInvalid"
+      >
+
+      <div class="invalid-feedback">
+        Por favor proporcione un correo electronico válido
+      </div>
+
     </div>
 
     <div class="col-md-4 offset-md-4">
       <label for="password" class="form-label">Password</label>
-      <input type="password" id="password" formControlName="password" class="form-control">
+      <input 
+        type="password" 
+        id="password" 
+        formControlName="password" 
+        class="form-control"
+        [class.is-invalid]="passwordIsInvalid"
+      >
+
+      <div class="invalid-feedback">
+        La password debe tener al menos 8 caracteres
+      </div>
+
     </div>
 
     <div class="mt-2 col-md-4 offset-md-4 d-grid gap-2">
@@ -30,6 +53,9 @@
           {{ loginForm.value | json }}
         </pre>
 
+        <pre>
+          emailIsValid: {{emailIsInvalid}}
+        </pre>
       </div>
     </div>
   </div>

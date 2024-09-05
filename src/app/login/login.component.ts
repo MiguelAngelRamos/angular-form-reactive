@@ -15,13 +15,27 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email] ],
-      password: ['', Validators.required]
+      password: ['', [Validators.required, Validators.minLength(8)]]
       
     });
   }
 
+
+  get emailIsInvalid():boolean {
+    return this.loginForm.get('email')!.invalid && this.loginForm.get('email')!.touched;
+  }
+
+  get passwordIsInvalid():boolean {
+    return this.loginForm.get('password')!.invalid && this.loginForm.get('password')!.touched;
+  }
+
   onSubmit() {
-    console.log(this.loginForm.valid);
+    if(this.loginForm.valid) {
+      console.log('Formulario enviado', this.loginForm.value);
+    } else {
+      console.log('Formulario no válido');
+    }
+
     
   }
 
