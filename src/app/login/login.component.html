@@ -1,6 +1,6 @@
 <div class="container mt-5">
 
-  <form class="row">
+  <form [formGroup]="loginForm" class="row" (ngSubmit)="onSubmit()">
 
     <div class="col-md-4 offset-md-4">
       <label for="email" class="form-label">Email</label>
@@ -13,8 +13,25 @@
     </div>
 
     <div class="mt-2 col-md-4 offset-md-4 d-grid gap-2">
-      <button class="btn btn-primary" type="button">Ingresar</button>
+      <button type="submit" class="btn btn-primary" >Ingresar</button>
     </div>
-
   </form>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <pre>
+          Estado del Formulario: {{ loginForm.valid }}
+          <br>
+          Status: {{ loginForm.status }}
+        </pre>
+
+        <pre>
+          {{ loginForm.value | json }}
+        </pre>
+
+      </div>
+    </div>
+  </div>
+
 </div>
