@@ -16,7 +16,7 @@ export class ComplexFormComponent implements OnInit {
     this.complexForm = this.formBuilder.group({
       fullName: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.maxLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(8)]],
       bio: ['', Validators.maxLength(500)],
       gender: ['', Validators.required],
       skills: this.formBuilder.array([

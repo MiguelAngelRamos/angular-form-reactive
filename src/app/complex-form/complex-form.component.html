@@ -5,6 +5,10 @@
     <div class="mb-3">
       <label for="fullName" class="form-label">Nombre Completo</label>
       <input type="text" id="fullName" formControlName="fullName" class="form-control">
+
+      <div *ngIf="complexForm.get('fullName')?.invalid && complexForm.get('fullName')?.touched" class="text-danger">
+        El nombre es obligatorio y debe tener al menos 3 caracteres
+      </div>
     
     </div>
 
@@ -12,14 +16,20 @@
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
       <input type="email" id="email" formControlName="email" class="form-control">
- 
+
+      <div *ngIf="complexForm.get('email')?.invalid && complexForm.get('email')?.touched" class="text-danger">
+        Proporcione un correo electrónico válido
+      </div>
+
     </div>
 
     <!-- Contraseña -->
     <div class="mb-3">
       <label for="password" class="form-label">Contraseña</label>
       <input type="password" id="password" formControlName="password" class="form-control">
-  
+      <div *ngIf="complexForm.get('password')?.invalid && complexForm.get('password')?.touched" class="text-danger">
+        La Contraseña debe tener al menos 8 caracteres
+      </div>
     </div>
 
     <!-- Biografía (TextArea) -->
