@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComplexFormComponent } from './complex-form/complex-form.component';
+import { HijoComponent } from './components/hijo/hijo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    ComplexFormComponent
+    ComplexFormComponent,
+    HijoComponent
   ],
   imports: [
     BrowserModule,
