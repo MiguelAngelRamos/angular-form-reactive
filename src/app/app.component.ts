@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,4 +18,17 @@ export class AppComponent {
     tematica: 'Frontend developer'
   }
 
+  datosDesdeHijo: any;
+
+  constructor() {
+    
+  }
+
+  ngOnInit() { 
+    
+   }
+
+  recibirEvento(event: any) {
+    this.datosDesdeHijo = event;
+  }
 }

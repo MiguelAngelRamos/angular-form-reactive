@@ -3,4 +3,13 @@
 <app-hijo
  [propiedadUno]="datoExterno"
  [propiedadDos]="identity"
+ (desdeElHijo)="recibirEvento($event)"
 />
+
+<div *ngIf="datosDesdeHijo">
+  <ul>
+    <li>{{datosDesdeHijo.nombre}}</li>
+    <li>{{datosDesdeHijo.web}}</li>
+    <li>{{datosDesdeHijo.twitter}}</li>
+  </ul>
+</div>
