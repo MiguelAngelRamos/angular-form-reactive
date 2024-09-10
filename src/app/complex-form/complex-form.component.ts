@@ -42,5 +42,25 @@ export class ComplexFormComponent implements OnInit {
     const skillNames = ['Programación', 'Diseño', 'Marketing'];
     return skillNames[index];
   }
-  
+
+  onSubmit() {
+    if(this.complexForm.valid) {
+      const formValue = this.complexForm.value;
+      // Mapeo de habilidades seleccionadas
+     //*   formValue.skills -> [true,false,false] 
+      const selectedSkills = formValue.skills.map((element:boolean, index:number) => element ? this.skillName(index): null)
+      .filter((skill: string | null) => skill !== null);
+      console.log(formValue);
+      console.log(selectedSkills); // Array(3) [ "Programación", null, null ]
+      // llamar servicio que se comunique con backend y enviar informacion
+
+      delete formValue.skills;
+      console.log('formulario a enviar al backend: ', {
+        ...formValue,
+        selectedSkills
+      });
+    } else {
+      console.log('formulario no valido');
+    }
+  }  
 }

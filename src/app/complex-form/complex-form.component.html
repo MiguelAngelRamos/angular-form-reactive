@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <form [formGroup]="complexForm">
+  <form [formGroup]="complexForm" (ngSubmit)="onSubmit()">
 
     <!-- Nombre completo -->
     <div class="mb-3">
@@ -99,6 +99,7 @@
     <div class="mb-3">
       <label for="satisfaction" class="form-label">Satisfacción: </label>
 
+      <span class="mx-1">{{ complexForm.get('satisfaction')?.value }}%</span>
       <!-- Input de tipo range -->
       <input type="range" id="satisfaction" formControlName="satisfaction" class="form-range" min="0" max="100">
 
@@ -106,7 +107,7 @@
     </div>
 
     <!-- Botón de Enviar -->
-    <button type="submit" class="btn btn-primary" >Enviar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="complexForm.invalid">Enviar</button>
   </form>
 
   <!-- Vista de datos en JSON -->
